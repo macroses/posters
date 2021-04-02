@@ -1,7 +1,5 @@
 <header>
-    <header>
-		<a href="/"><img src="kiwi.svg" alt=""></a>
-	</header>
+    <a href="/"><img src="kiwi.svg" alt=""></a>
 </header>
 
 <style lang="scss">
@@ -9,6 +7,7 @@
 		grid-area: header;
         display: flex;
         align-items: center;
+        padding: 0 20px;
 	}
 
     a {
