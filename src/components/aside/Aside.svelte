@@ -1,8 +1,9 @@
 <script>
     import data from '../../moc/data.json';
+    import Button from '../buttons/Button.svelte';
+    import Select from '../select/Select.svelte';
 
     const allItems = data;
-    const allResults = 'Все';
 
     let sortedPrices = [];
 
@@ -18,12 +19,7 @@
 <aside>
     <div class="title">фильтры</div>
     <label for="categories" class="descr">Категория товаров</label>
-    <select>
-        <option value={allResults}>{allResults}</option>
-        {#each allItems as item}
-            <option value={item.category}>{item.category}</option>
-        {/each}
-    </select>
+    <Select allCategories={allItems}></Select>
 
     <div class="descr">Цена, &#8381;</div>
     <div class="range_form">
@@ -37,6 +33,7 @@
         </div>
     </div>
 
+    <Button>показать</Button>
 </aside>
 
 <style lang=scss>
@@ -50,20 +47,6 @@
         text-transform: uppercase;
         font-weight: 700;
         margin-bottom: 20px;
-        color: var(--text-color);
-    }
-
-    select {
-        width: 100%;
-        padding: 10px;
-        border-radius: 6px;
-        border: 1px solid var(--text-color);
-        margin: 10px 0 20px;
-        color: var(--text-color);
-
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
     }
 
     .descr {
@@ -83,6 +66,12 @@
         flex: 1;
         span {
             font-size: 12px;
+            margin-bottom: 3px;
+            display: inline-block;
+        }
+
+        &:last-child {
+            text-align: right;
         }
     }
 
