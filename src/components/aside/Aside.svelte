@@ -1,25 +1,33 @@
 <script>
-    import data from '../../moc/data.json';
+    import posts from '../../moc/posts.json';
+    import categories from '../../moc/categories.json';
+
     import Button from '../buttons/Button.svelte';
     import Select from '../select/Select.svelte';
 
-    const allItems = data;
+    const allCategories = categories;
+    const allPrices = posts;
 
     let sortedPrices = [];
-
-    for(let i = 0; i < allItems.length; i++) {
-        sortedPrices = [...sortedPrices, allItems[i].price].sort((a,b) => a - b);
-    }
+    
+    allPrices.forEach((item) => {
+        sortedPrices = [...sortedPrices, item.itemPrice].sort((a, b) => a - b);
+    })
 
     const minPrice = sortedPrices[0];
     const maxPrice = sortedPrices[sortedPrices.length - 1];
+
+    let selected;
 
 </script>
 
 <aside>
     <div class="title">фильтры</div>
     <label for="categories" class="descr">Категория товаров</label>
-    <Select allCategories={allItems}></Select>
+    <Select
+        allCategories={allCategories}
+        bind:chosenID={selected}
+        ></Select>
 
     <div class="descr">Цена, &#8381;</div>
     <div class="range_form">

@@ -1,5 +1,5 @@
 <script>
-    import Button from '../buttons/Button.svelte';
+    import PostList from '../posts/PostList.svelte';
 </script>
 
 <main>
@@ -21,6 +21,8 @@
             </button>
         </div>
     </div>
+    
+    <PostList></PostList>
 </main>
 
 <style lang=scss> 
@@ -44,6 +46,7 @@
 
     .content_nav {
         margin-top: 10px;
+        margin-bottom: 20px;
         display: flex;
 
         button {

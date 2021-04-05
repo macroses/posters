@@ -1,0 +1,18 @@
+[
+    {
+        "categoryID": "1",
+        "category": "Недвижимость"
+    },
+    {
+        "categoryID": "2",
+        "category": "Автомобили"
+    },
+    {
+        "categoryID": "3",
+        "category": "Ноутбуки"
+    },
+    {
+        "categoryID": "4",
+        "category": "Фотоаппараты"
+    }
+]

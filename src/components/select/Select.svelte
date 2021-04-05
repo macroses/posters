@@ -1,11 +1,12 @@
 <script>
     export let allCategories;
+    export let chosenID;
 </script>
 
-<select>
+<select bind:value={chosenID}>
     <option value="Все">Все</option>
-    {#each allCategories as item}
-        <option value={item.category}>{item.category}</option>
+    {#each allCategories as item (item.categoryID)}
+        <option value={item.categoryID}>{item.category}</option>
     {/each}
 </select>
 
