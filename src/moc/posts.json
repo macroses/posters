@@ -56,5 +56,49 @@
         "viewsCount": "1249",
         "itemPhoto": "https://cs8.pikabu.ru/post_img/big/2016/07/13/8/14684125001100181705.jpg",
         "itemAbout": "Однушка"
+    },
+    {
+        "categoryID": "1",
+        "typeID": "2",
+        "itemID": "5",
+        "itemName": "Двухкомнатная халупа",
+        "itemPrice": "4500000",
+        "itemGeo": "Москва, ул. Бориса Жигулёнкова",
+        "itemPostDate": "5 мая 2018 года",
+        "itemSquare": "74.5",
+        "itemRoomsCount": "2",
+        "viewsCount": "3612",
+        "itemPhoto": "https://www.fontanka.ru/longreads/69055537/2020/images/tild3236-3039-4438-b935-366561386233__48.jpg",
+        "itemAbout": "Сдам 2-х комнатную квартиру. В шаговой доступности метро, Ашан, школа, ТРК Бум. Можно заезжать со своей мебелью. Готовы докупить стиральную машину, микроволновую печь, кровати при отсутствии их у вас."
+    },
+    {
+        "categoryID": "1",
+        "typeID": "2",
+        "itemID": "6",
+        "itemName": "Однокомнатные хоромы в Курске",
+        "itemPrice": "200",
+        "itemGeo": "Курск, ул. Вон Там",
+        "itemPostDate": "1 января 2020 года",
+        "itemSquare": "24",
+        "itemRoomsCount": "1",
+        "viewsCount": "2",
+        "itemPhoto": "https://ic.pics.livejournal.com/nelidova_ng/83946200/121314/121314_800.jpg",
+        "itemAbout": "Доплачу 200 рублей, только заберите"
+    },
+
+
+    {
+        "categoryID": "1",
+        "typeID": "3",
+        "itemID": "7",
+        "itemName": "Апартаменты в Moscow city",
+        "itemPrice": "46000000",
+        "itemGeo": "Москва, Москоу Сити",
+        "itemPostDate": "12 января 2021 года",
+        "itemSquare": "105",
+        "itemRoomsCount": "1",
+        "viewsCount": "11244",
+        "itemPhoto": "https://st75.domofond.ru/image/1/_gLtBba29upZRkIhUGDIavqOUOtdpLD7k61Q",
+        "itemAbout": ""
     }
 ]
