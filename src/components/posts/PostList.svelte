@@ -1,6 +1,4 @@
 <script>
-    import posts from '../../moc/posts.json';
-
     export let allPostsArr;
 </script>
 
