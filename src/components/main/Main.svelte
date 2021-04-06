@@ -1,5 +1,26 @@
 <script>
+    import posts from '../../moc/posts.json';
     import PostList from '../posts/PostList.svelte';
+    
+    let allPosts = posts;
+    
+
+    function sortByPrice () {
+        allPosts = allPosts.sort((a, b) => parseInt(a.itemPrice) > parseInt(b.itemPrice) ? 1 : -1);
+    }
+
+    function sortByViews () {
+        allPosts = allPosts.sort((a, b) => parseInt(a.viewsCount) > parseInt(b.viewsCount) ? -1 : 1);
+    }
+
+    function sortByDate () {
+        allPosts = allPosts.sort((a, b) => {
+            let c = new Date(a.itemPostDate).getTime();
+            let d = new Date(b.itemPostDate).getTime();
+            return c > d ? 1 : -1;
+        });
+    }
+
 </script>
 
 <main>
@@ -8,9 +29,9 @@
     <div class="descr">Показать сначала:</div>
     <div class="content_nav">
         <div class="btn_group">
-            <button class="active">Популярные</button>
-            <button>Дешевые</button>
-            <button>Новые</button>
+            <button on:click={sortByViews}  class="active">Популярные</button>
+            <button on:click={sortByPrice}>Дешевые</button>
+            <button on:click={sortByDate}>Новые</button>
         </div>
         <div class="favorite_btn">
             <button>
@@ -22,7 +43,7 @@
         </div>
     </div>
     
-    <PostList></PostList>
+    <PostList allPostsArr={allPosts}></PostList>
 </main>
 
 <style lang=scss> 

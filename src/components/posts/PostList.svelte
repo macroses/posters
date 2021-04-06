@@ -1,19 +1,17 @@
 <script>
     import posts from '../../moc/posts.json';
 
-    export let favoriteItem = false;
-
-    const handleFavorite = () => {
-        favoriteItem = !favoriteItem;
-    }
+    export let allPostsArr;
 </script>
 
 <ul class="posts_list">
-    {#each posts as item, index (item.itemID)}
+    {#each allPostsArr as item (item.itemID)}
         <div class="container">
             <div class="item_photo">
                 <img src={item.itemPhoto} alt="">
-                <div class="favorite" class:active={favoriteItem} on:click={handleFavorite}>
+                
+                <div class="favorite {item.itemFavorite ? 'active' : ''}"  
+                    on:click={() => item.itemFavorite = !item.itemFavorite}>
                     <span class="material-icons">favorite</span>
                 </div>
             </div>
@@ -26,6 +24,12 @@
                     {item.itemGeo}
                 </div>
                 <div class="item_postdate">{item.itemPostDate}</div>
+                <div class="item_views" title="количество просмотров">
+                    <span class="material-icons">
+                        visibility
+                    </span>
+                    {item.viewsCount}
+                </div>
             </div>
         </div>
     {/each}
@@ -101,5 +105,17 @@
 
     .item_postdate {
         font-size: 12px;
+        margin-bottom: 10px;
     }
+
+    .item_views {
+        font-size: 12px;
+        color: var(--text-color-light);
+        display: flex;
+        align-items: center;
+        span {
+            margin-right: 5px;
+        }
+    }
+
 </style>
