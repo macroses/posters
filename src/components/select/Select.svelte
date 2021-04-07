@@ -1,10 +1,11 @@
 <script>
     export let allCategories;
     export let chosenID;
+    export let onChangeVal;
 </script>
 
-<select bind:value={chosenID}>
-    <option value="Все">Все</option>
+<select bind:value={chosenID} on:change="{onChangeVal}">
+    <option value="0">Все</option>
     {#each allCategories as item (item.categoryID)}
         <option value={item.categoryID}>{item.category}</option>
     {/each}

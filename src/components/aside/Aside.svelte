@@ -1,4 +1,5 @@
 <script>
+    import { categoryStore } from '../store';
     import posts from '../../moc/posts.json';
     import categories from '../../moc/categories.json';
 
@@ -6,11 +7,11 @@
     import Select from '../select/Select.svelte';
 
     const allCategories = categories;
-    const allPrices = posts;
+    const allPosts = posts;
 
     let sortedPrices = [];
     
-    allPrices.forEach((item) => {
+    allPosts.forEach((item) => {
         sortedPrices = [...sortedPrices, item.itemPrice].sort((a, b) => a - b);
     })
 
@@ -18,7 +19,10 @@
     const maxPrice = sortedPrices[sortedPrices.length - 1];
 
     let selected;
-
+    // устанавливаем для стора значение value из селекта
+    function updateCategory () {
+        categoryStore.set(selected);
+    }
 </script>
 
 <aside>
@@ -27,6 +31,7 @@
     <Select
         allCategories={allCategories}
         bind:chosenID={selected}
+        onChangeVal={updateCategory}
         ></Select>
 
     <div class="descr">Цена, &#8381;</div>
@@ -41,7 +46,7 @@
         </div>
     </div>
 
-    <Button>показать</Button>
+    <Button on:click>показать</Button>
 </aside>
 
 <style lang=scss>

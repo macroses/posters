@@ -1,11 +1,20 @@
 <script>
+    import { categoryStore } from '../store';
     import posts from '../../moc/posts.json';
     import PostList from '../posts/PostList.svelte';
     
     let allPosts = posts;
-    let activeButton = 1;
+    let activeButton = 0;
     let visibleFavorite = false;
-    
+
+    categoryStore.subscribe(selectValue => {
+        if(selectValue == 0) {
+            allPosts = posts;
+        } else { 
+            allPosts = posts.filter(b => b.categoryID == selectValue);
+        }
+        activeButton = 0;
+    });
 
     function sortByPrice () {
         allPosts = allPosts.sort((a, b) => parseInt(a.itemPrice) > parseInt(b.itemPrice) ? 1 : -1);
@@ -44,11 +53,11 @@
         }
     }
 
+
 </script>
 
 <main>
     <div class="title">результаты</div>
-
     <div class="descr">Показать сначала:</div>
     <div class="content_nav">
         <div class="btn_group">
@@ -67,8 +76,6 @@
     </div>
     {#await allPosts then value}
         <PostList allPostsArr={value}></PostList>
-
-        
     {/await}
     
     

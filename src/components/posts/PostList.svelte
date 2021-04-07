@@ -7,7 +7,6 @@
         <div class="container">
             <div class="item_photo">
                 <img src={item.itemPhoto} alt="">
-                
                 <div class="favorite {item.itemFavorite ? 'active' : ''}"  
                     on:click={() => item.itemFavorite = !item.itemFavorite}>
                     <span class="material-icons">favorite</span>
