@@ -8,7 +8,8 @@
             <div class="item_photo">
                 <img src={item.itemPhoto} alt="">
                 <div class="favorite {item.itemFavorite ? 'active' : ''}"  
-                    on:click={() => item.itemFavorite = !item.itemFavorite}>
+                    on:click={() => item.itemFavorite = !item.itemFavorite}
+                    title="добавить в избранное">
                     <span class="material-icons">favorite</span>
                 </div>
             </div>
@@ -30,8 +31,11 @@
             </div>
         </div>
     {/each}
-</ul>
 
+    {#if allPostsArr.length == 0}
+        <div class="info">По этим параметрам ничего не найдено</div> 
+    {/if}
+</ul>
 
 <style lang=scss>
     .container {
@@ -113,6 +117,12 @@
         span {
             margin-right: 5px;
         }
+    }
+
+    .info {
+        text-align: center;
+        font-size: 25px;
+        font-weight: bold;
     }
 
 </style>

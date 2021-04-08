@@ -1,5 +1,7 @@
 <script>
     import { categoryStore } from '../store';
+    import { pricesRangeStore } from '../pricesValueStore';
+
     import posts from '../../moc/posts.json';
     import categories from '../../moc/categories.json';
 
@@ -11,6 +13,7 @@
 
     let sortedPrices = [];
     
+    // мин/макс цена
     allPosts.forEach((item) => {
         sortedPrices = [...sortedPrices, item.itemPrice].sort((a, b) => a - b);
     })
@@ -23,6 +26,7 @@
     function updateCategory () {
         categoryStore.set(selected);
     }
+
 </script>
 
 <aside>
@@ -38,15 +42,15 @@
     <div class="range_form">
         <div class="range_form_item">
             <span>от {minPrice}</span>
-            <input type="text">
+            <input type="text" bind:value={$pricesRangeStore.min}>
         </div>
         <div class="range_form_item">
             <span>до {maxPrice}</span>
-            <input type="text">
+            <input type="text" bind:value={$pricesRangeStore.max}>
         </div>
     </div>
 
-    <Button on:click>показать</Button>
+    
 </aside>
 
 <style lang=scss>

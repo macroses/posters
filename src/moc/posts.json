@@ -178,5 +178,74 @@
         "itemFavorite": false,
         "itemPhoto": "https://95.img.avito.st/image/1/XohIJ7ax8mF-kHBseGJNk66E8mX0hvhj",
         "itemAbout": "2021, кондиционер, аудио, ткань, airbags, ABS, центральный замок, электропривод стекол, электропривод зеркал, обогрев лобового стекла, обогрев сидений, R16"
+    },
+    {
+        "categoryID": "2",
+        "typeID": "5",
+        "itemID": "13",
+        "itemName": "Audi 80",
+        "itemPrice": "50000",
+        "itemGeo": "Москва, Северо-Восточный административный округ, район Ростокино",
+        "itemPostDate": "8 4 2021 09:33:00 AM",
+        "viewsCount": "34",
+        "itemFavorite": false,
+        "itemPhoto": "https://assets.avtocod.ru/storage/images/Audi-80-B3.JPG",
+        "itemAbout": "Продаю ауди 80, не заводилась года полтора-два, акум скорее всего дохлый, заниматься некогда. На запчасти, на разбор или под востановление ЦЕЛИКОМ за 50,000, возможен не большей торг, Обмен не интересует."
+    },
+    {
+        "categoryID": "2",
+        "typeID": "5",
+        "itemID": "14",
+        "itemName": "ВАЗ 1111 Ока",
+        "itemPrice": "40000",
+        "itemGeo": "Москва, Лобненская ул., 19",
+        "itemPostDate": "15 11 2020 09:12:00 AM",
+        "viewsCount": "1",
+        "itemFavorite": false,
+        "itemPhoto": "https://avatars.mds.yandex.net/get-verba/787013/2a000001609d5af365323537707cb8318985/cattouch",
+        "itemAbout": "без торга, на ходу сел-поехал, документы чистые три хозяина"
+    },
+
+
+
+
+    {
+        "categoryID": "3",
+        "typeID": "6",
+        "itemID": "15",
+        "itemName": "Blade 15 2021 Advanced 8 ядер 240Hz RTX3070",
+        "itemPrice": "270000",
+        "itemGeo": "Москва, ул. Сущёвский Вал, 5с1А ",
+        "itemPostDate": "1 4 2020 12:31:00 AM",
+        "viewsCount": "867",
+        "itemFavorite": false,
+        "itemPhoto": "https://32.img.avito.st/image/1/KXP79rayhZrNQQeXpeIXfQJVhZxbV4c",
+        "itemAbout": "⭐ ЦЕНА - гибко меняется в зависимости от курса валюты и может быть как НИЖЕ, так и выше, просьба актуализировать у менеджера."
+    },
+    {
+        "categoryID": "3",
+        "typeID": "7",
+        "itemID": "16",
+        "itemName": "Dell E7490 i5-8350U FHD IPS",
+        "itemPrice": "52000",
+        "itemGeo": "Москва, Лобненская ул., 19",
+        "itemPostDate": "3 4 2020 12:31:00 PM",
+        "viewsCount": "250",
+        "itemFavorite": false,
+        "itemPhoto": "https://65.img.avito.st/image/1/dG1poray2IRfFVqJDfctUo8B2ILJA9o",
+        "itemAbout": "В нашем профиле есть другие модели ноутбуков - добавьте в избранное ❤️, чтобы не потерять!"
+    },
+    {
+        "categoryID": "3",
+        "typeID": "7",
+        "itemID": "17",
+        "itemName": "HP Core i5, i7 EliteBook 840",
+        "itemPrice": "22900",
+        "itemGeo": "Москва, Павловская ул., 18",
+        "itemPostDate": "3 4 2020 12:31:00 PM",
+        "viewsCount": "33",
+        "itemFavorite": false,
+        "itemPhoto": "https://39.img.avito.st/image/1/Dhq5cbayovOPxiD-qWF-QzLSovUZ0KA",
+        "itemAbout": "Ноутбук HP EliteBook 840 с процессором intel Core i5, качественным HD+ дисплеем и в металлическом корпусе! Премиальная линейка очень надежных и производительных ноутбуков которые легко справятся с Офисными задачами, Бизнес программами, созданием презентаций, обработки Фото и видео, а так же работой в AutoCad, ArchiCad c чертежами или моделированием! Отличаются хорошей автономностью и возможность установки 2х дисков SSD + HDD."
     }
 ]

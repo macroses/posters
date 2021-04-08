@@ -1,5 +1,7 @@
 <script>
     import { categoryStore } from '../store';
+    import { pricesRangeStore } from '../pricesValueStore';
+
     import posts from '../../moc/posts.json';
     import PostList from '../posts/PostList.svelte';
     
@@ -7,14 +9,29 @@
     let activeButton = 0;
     let visibleFavorite = false;
 
+
+    // следим за стором значения селекта из Aside.svelte
     categoryStore.subscribe(selectValue => {
         if(selectValue == 0) {
             allPosts = posts;
         } else { 
-            allPosts = posts.filter(b => b.categoryID == selectValue);
+            allPosts = posts.filter(el => el.categoryID == selectValue);
         }
         activeButton = 0;
+        visibleFavorite = false;
     });
+
+    // следим за стором значений инпутов из Aside.svelte
+    pricesRangeStore.subscribe(inpVal => {
+        allPosts = posts.filter(el => (parseInt(el.itemPrice) >= inpVal.min) && (parseInt(el.itemPrice) <= inpVal.max));
+        if (inpVal.max < inpVal.min) {
+            return posts;
+        }
+        if(inpVal.min == 0 && inpVal.max == 0) {
+            allPosts = posts;
+        }
+    });
+
 
     function sortByPrice () {
         allPosts = allPosts.sort((a, b) => parseInt(a.itemPrice) > parseInt(b.itemPrice) ? 1 : -1);
