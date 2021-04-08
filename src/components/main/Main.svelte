@@ -9,7 +9,6 @@
     let activeButton = 0;
     let visibleFavorite = false;
 
-
     // следим за стором значения селекта из Aside.svelte
     categoryStore.subscribe(selectValue => {
         if(selectValue == 0) {
@@ -23,14 +22,25 @@
 
     // следим за стором значений инпутов из Aside.svelte
     pricesRangeStore.subscribe(inpVal => {
-        allPosts = posts.filter(el => (parseInt(el.itemPrice) >= inpVal.min) && (parseInt(el.itemPrice) <= inpVal.max));
-        if (inpVal.max < inpVal.min) {
-            return posts;
+
+        if (inpVal.min > 0 && inpVal.max > 0) {
+            allPosts = posts.filter(el => (parseInt(el.itemPrice) >= inpVal.min) && (parseInt(el.itemPrice) <= inpVal.max));
         }
-        if(inpVal.min == 0 && inpVal.max == 0) {
-            allPosts = posts;
+        else if (inpVal.min > 0) {
+            allPosts = posts.filter(el => (parseInt(el.itemPrice) >= inpVal.min));
+        } 
+        else if (inpVal.max > 0) {
+            allPosts = posts.filter(el => (parseInt(el.itemPrice) <= inpVal.max));
         }
+        else {
+            allPosts = posts
+        }
+
     });
+
+    // $: console.log($pricesRangeStore);
+
+
 
 
     function sortByPrice () {
@@ -74,6 +84,8 @@
 </script>
 
 <main>
+    <p>{$pricesRangeStore.min}</p>
+    <p>{$pricesRangeStore.max}</p>
     <div class="title">результаты</div>
     <div class="descr">Показать сначала:</div>
     <div class="content_nav">

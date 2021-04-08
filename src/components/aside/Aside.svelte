@@ -25,8 +25,14 @@
     // устанавливаем для стора значение value из селекта
     function updateCategory () {
         categoryStore.set(selected);
-    }
+    };
 
+
+    // function updatePriceRange () {
+    //     console.log($pri)
+    // };
+
+    
 </script>
 
 <aside>
