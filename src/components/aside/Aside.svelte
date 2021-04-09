@@ -4,15 +4,16 @@
 
     import posts from '../../moc/posts.json';
     import categories from '../../moc/categories.json';
+    import types from '../../moc/types.json';
 
-    import Button from '../buttons/Button.svelte';
     import Select from '../select/Select.svelte';
+    import InputCheckbox from '../inputs/InputCheckbox.svelte';
 
     const allCategories = categories;
     const allPosts = posts;
 
     let sortedPrices = [];
-    
+
     // мин/макс цена
     allPosts.forEach((item) => {
         sortedPrices = [...sortedPrices, item.itemPrice].sort((a, b) => a - b);
@@ -27,6 +28,10 @@
         categoryStore.set(selected);
     }
 
+    $: curentTypes = [...types.filter(el => el.categoryID == $categoryStore)];
+
+    // следим за чекбоксами
+    let checkCurrentType = false;
 </script>
 
 <aside>
@@ -51,6 +56,33 @@
     </div>
 
     
+
+    {#if $categoryStore == 1}
+        <div class="descr">Минимальная площадь, м<sup>2</sup></div>
+        <input type="text">
+        <div class="descr">Количество комнат</div>
+        <div class="btn_group">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+        </div>
+
+        <div class="types_list">
+            {#each curentTypes as item (item.typeID)}
+                <InputCheckbox bind:checkedVal={checkCurrentType}>
+                    {item.typeValue} {item.typeID}
+                    {checkCurrentType}
+                </InputCheckbox>
+            {/each}
+        </div>
+    <!-- {:else if  $categoryStore == 2}
+        <div class="descr">Коробка передач</div>
+    {:else if $categoryStore == 3} 
+        <div class="descr">Минимальный объем оперативной памяти</div> -->
+    {/if}
+
 </aside>
 
 <style lang=scss>
@@ -70,6 +102,7 @@
         font-weight: 600;
         font-size: 14px;
         color: var(--text-color-light);
+        margin-bottom: 10px;
     }
 
     .range_form {
@@ -79,7 +112,7 @@
 
     .range_form_item {
         width: 100px;
-        margin: 10px 0 20px;
+        margin: 0 0 20px;
         flex: 1;
         span {
             font-size: 12px;
@@ -98,6 +131,12 @@
         border-radius: 6px;
         border: 1px solid var(--text-color);
         color: var(--text-color);
+    }
+
+    .types_list {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0 20px;
     }
 
 </style>

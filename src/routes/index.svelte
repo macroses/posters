@@ -26,7 +26,7 @@
 			"aside main";
 
 		grid-template-rows: 60px 1fr;
-		grid-template-columns: 300px 1fr;
+		grid-template-columns: 400px 1fr;
 	}
 
 </style>
