@@ -26,7 +26,8 @@
     // устанавливаем для стора значение value из селекта
     function updateCategory () {
         categoryStore.set(selected);
-    }
+    };
+
 
     $: curentTypes = [...types.filter(el => el.categoryID == $categoryStore)];
 

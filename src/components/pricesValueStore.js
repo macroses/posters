@@ -1,8 +1,8 @@
 import { writable } from 'svelte/store';
 
 let pricesRange = {
-    min: 0,
-    max: 0
+    min: "",
+    max: ""
 }
 
 export const pricesRangeStore = writable(pricesRange);
