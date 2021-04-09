@@ -31,8 +31,8 @@
 
     $: curentTypes = [...types.filter(el => el.categoryID == $categoryStore)];
 
-    // следим за чекбоксами
-    let checkCurrentType = false;
+    let checkCurentType = false;
+
 </script>
 
 <aside>
@@ -56,8 +56,13 @@
         </div>
     </div>
 
-    
-
+    <div class="types_list">
+        {#each curentTypes as item (item.typeID)}
+            <InputCheckbox checked={checkCurentType} value={item.typeID}>
+                {item.typeValue}
+            </InputCheckbox>
+        {/each}
+    </div>
     {#if $categoryStore == 1}
         <div class="descr">Минимальная площадь, м<sup>2</sup></div>
         <input type="text">
@@ -70,18 +75,7 @@
             <button>5</button>
         </div>
 
-        <div class="types_list">
-            {#each curentTypes as item (item.typeID)}
-                <InputCheckbox bind:checkedVal={checkCurrentType}>
-                    {item.typeValue} {item.typeID}
-                    {checkCurrentType}
-                </InputCheckbox>
-            {/each}
-        </div>
-    <!-- {:else if  $categoryStore == 2}
-        <div class="descr">Коробка передач</div>
-    {:else if $categoryStore == 3} 
-        <div class="descr">Минимальный объем оперативной памяти</div> -->
+        
     {/if}
 
 </aside>

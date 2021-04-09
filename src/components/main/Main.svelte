@@ -22,20 +22,15 @@
 
     // следим за стором значений инпутов из Aside.svelte
     pricesRangeStore.subscribe(inpVal => {
-
         if (inpVal.min > 0 && inpVal.max > 0) {
             allPosts = posts.filter(el => (parseInt(el.itemPrice) >= inpVal.min) && (parseInt(el.itemPrice) <= inpVal.max));
-        }
-        else if (inpVal.min > 0) {
+        } else if (inpVal.min > 0) {
             allPosts = posts.filter(el => (parseInt(el.itemPrice) >= inpVal.min));
-        } 
-        else if (inpVal.max > 0) {
+        } else if (inpVal.max > 0) {
             allPosts = posts.filter(el => (parseInt(el.itemPrice) <= inpVal.max));
-        }
-        else {
+        } else {
             allPosts = posts
         }
-
     });
 
     // $: console.log($pricesRangeStore);

@@ -1,9 +1,14 @@
 <script>
-    export let checkedVal;
+    export let checked;
+    export let value;
+
+    $: if(checked) {
+        console.log(value)
+    }
 </script>
 
 <label>
-    <input type="checkbox" on:checked={checkedVal} >
+    <input type="checkbox" bind:checked={checked} value={value}>
     <span>
         <slot></slot>
     </span>
