@@ -1,6 +1,7 @@
 <script>
     import { categoryStore } from '../store';
     import { pricesRangeStore } from '../pricesValueStore';
+    import { typesStore } from '../typesStore';
 
     import posts from '../../moc/posts.json';
     import categories from '../../moc/categories.json';
@@ -25,13 +26,20 @@
     let selected;
     // устанавливаем для стора значение value из селекта
     function updateCategory () {
-        categoryStore.set(selected);
+        $categoryStore = selected;
     };
 
+    $: tempTypes = [...types.filter(el => el.categoryID == $categoryStore)];
 
-    $: curentTypes = [...types.filter(el => el.categoryID == $categoryStore)];
-
-    let checkCurentType = false;
+    function changeCurrentTypes (id) {
+        // если такой айди уже есть в массиве, тогда он удаляется.
+        let index = $typesStore.indexOf(id);
+        if (index > -1) {
+            $typesStore.splice(index, 1);
+        } else {
+            $typesStore = [...$typesStore, id];
+        }
+    }
 
 </script>
 
@@ -57,12 +65,13 @@
     </div>
 
     <div class="types_list">
-        {#each curentTypes as item (item.typeID)}
-            <InputCheckbox checked={checkCurentType} value={item.typeID}>
+        {#each tempTypes as item (item.typeID)}
+            <InputCheckbox handleChange={()=>changeCurrentTypes(item.typeID)}>
                 {item.typeValue}
             </InputCheckbox>
         {/each}
     </div>
+
     {#if $categoryStore == 1}
         <div class="descr">Минимальная площадь, м<sup>2</sup></div>
         <input type="text">

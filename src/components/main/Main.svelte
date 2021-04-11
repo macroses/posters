@@ -1,6 +1,10 @@
 <script>
+    // stores
     import { categoryStore } from '../store';
     import { pricesRangeStore } from '../pricesValueStore';
+    import { typesStore } from '../typesStore';
+
+    import { onDestroy } from 'svelte';
 
     import posts from '../../moc/posts.json';
     import PostList from '../posts/PostList.svelte';
@@ -33,9 +37,21 @@
         }
     });
 
-    // $: console.log($pricesRangeStore);
+    // typesStore.subscribe(checkValue => {
+    //     allPosts = posts.filter(elem => checkValue.some(elem2 => elem.typeID == elem2));
 
+    //     if(checkValue.length == 0) {
+    //         allPosts = posts;
+    //     }
+    // })
 
+    $: if ($typesStore.length == 0) {
+        allPosts = posts;
+    } else {
+        allPosts = posts.filter(elem => $typesStore.some(elem2 => elem.typeID == elem2));
+    }
+
+    $: console.log($typesStore)
 
 
     function sortByPrice () {
@@ -74,8 +90,6 @@
             allPosts = posts;
         }
     }
-
-
 </script>
 
 <main>

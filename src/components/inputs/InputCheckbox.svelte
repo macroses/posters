@@ -1,14 +1,9 @@
 <script>
-    export let checked;
-    export let value;
-
-    $: if(checked) {
-        console.log(value)
-    }
+    export let handleChange;
 </script>
 
 <label>
-    <input type="checkbox" bind:checked={checked} value={value}>
+    <input type="checkbox" on:input={handleChange}>
     <span>
         <slot></slot>
     </span>
