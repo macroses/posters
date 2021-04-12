@@ -28,6 +28,8 @@
                     </span>
                     {item.viewsCount}
                 </div>
+
+                <a href="pages/{item.itemID}">{item.itemID}</a>
             </div>
         </div>
     {/each}

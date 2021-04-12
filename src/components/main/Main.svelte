@@ -37,14 +37,6 @@
         }
     });
 
-    // typesStore.subscribe(checkValue => {
-    //     allPosts = posts.filter(elem => checkValue.some(elem2 => elem.typeID == elem2));
-
-    //     if(checkValue.length == 0) {
-    //         allPosts = posts;
-    //     }
-    // })
-
     $: if ($typesStore.length == 0) {
         allPosts = posts;
     } else {
@@ -112,9 +104,9 @@
             </button>
         </div>
     </div>
-    {#await allPosts then value}
-        <PostList allPostsArr={value}></PostList>
-    {/await}
+
+    <PostList allPostsArr={allPosts}></PostList>
+
     
     
 </main>

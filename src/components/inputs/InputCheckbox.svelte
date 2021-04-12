@@ -1,9 +1,10 @@
 <script>
     export let handleChange;
+    export let checkID;
 </script>
 
 <label>
-    <input type="checkbox" on:input={handleChange}>
+    <input type="checkbox" on:input={handleChange} bind:value={checkID}>
     <span>
         <slot></slot>
     </span>

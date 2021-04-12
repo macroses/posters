@@ -27,6 +27,8 @@
     // устанавливаем для стора значение value из селекта
     function updateCategory () {
         $categoryStore = selected;
+        // при смене категории сбрасываем массив типов из стора
+        $typesStore = [];
     };
 
     $: tempTypes = [...types.filter(el => el.categoryID == $categoryStore)];
