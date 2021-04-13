@@ -4,25 +4,22 @@
     import { pricesRangeStore } from '../pricesValueStore';
     import { typesStore } from '../typesStore';
 
-    import { onDestroy } from 'svelte';
-
     import posts from '../../moc/posts.json';
-    import PostList from '../posts/PostList.svelte';
+    // import PostList from '../posts/PostList.svelte';
+    import PostItem from '../postItem/PostItem.svelte';
     
     let allPosts = posts;
     let activeButton = 0;
     let visibleFavorite = false;
 
-    // следим за стором значения селекта из Aside.svelte
-    categoryStore.subscribe(selectValue => {
-        if(selectValue == 0) {
-            allPosts = posts;
-        } else { 
-            allPosts = posts.filter(el => el.categoryID == selectValue);
-        }
+    $: if ($categoryStore == 0) {
+        allPosts = posts;
+    } else {
+        allPosts = posts.filter(el => el.categoryID == $categoryStore);
         activeButton = 0;
         visibleFavorite = false;
-    });
+    }
+        
 
     // следим за стором значений инпутов из Aside.svelte
     pricesRangeStore.subscribe(inpVal => {
@@ -42,8 +39,6 @@
     } else {
         allPosts = posts.filter(elem => $typesStore.some(elem2 => elem.typeID == elem2));
     }
-
-    $: console.log($typesStore)
 
 
     function sortByPrice () {
@@ -85,8 +80,7 @@
 </script>
 
 <main>
-    <p>{$pricesRangeStore.min}</p>
-    <p>{$pricesRangeStore.max}</p>
+    <slot></slot>
     <div class="title">результаты</div>
     <div class="descr">Показать сначала:</div>
     <div class="content_nav">
@@ -105,10 +99,13 @@
         </div>
     </div>
 
-    <PostList allPostsArr={allPosts}></PostList>
-
+    <!-- <PostList allPostsArr={allPosts}></PostList> -->
     
-    
+    <ul class="post_list">
+        {#each allPosts as item (item.itemID)}
+            <PostItem {...item}></PostItem>
+        {/each}
+    </ul>
 </main>
 
 <style lang=scss> 

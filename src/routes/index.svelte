@@ -1,32 +1,186 @@
 <script>
-    import Header from '../components/Header.svelte';
-    import Aside from '../components/aside/Aside.svelte';
-    import Main from '../components/main/Main.svelte';
+    // stores
+    import { categoryStore } from '../components/store.js';
+    import { pricesRangeStore } from '../components/pricesValueStore.js';
+    import { typesStore } from '../components/typesStore.js';
+
+    import posts from '../moc/posts.json';
+    // import PostList from '../posts/PostList.svelte';
+    import PostItem from '../components/postItem/PostItem.svelte';
+    
+    let allPosts = posts;
+    let activeButton = 0;
+    let visibleFavorite = false;
+
+    $: if ($categoryStore == 0) {
+        allPosts = posts;
+    } else {
+        allPosts = posts.filter(el => el.categoryID == $categoryStore);
+        activeButton = 0;
+        visibleFavorite = false;
+    }
+        
+
+    // следим за стором значений инпутов из Aside.svelte
+    pricesRangeStore.subscribe(inpVal => {
+        if (inpVal.min > 0 && inpVal.max > 0) {
+            allPosts = posts.filter(el => (parseInt(el.itemPrice) >= inpVal.min) && (parseInt(el.itemPrice) <= inpVal.max));
+        } else if (inpVal.min > 0) {
+            allPosts = posts.filter(el => (parseInt(el.itemPrice) >= inpVal.min));
+        } else if (inpVal.max > 0) {
+            allPosts = posts.filter(el => (parseInt(el.itemPrice) <= inpVal.max));
+        } else {
+            allPosts = posts
+        }
+    });
+
+    $: if ($typesStore.length == 0) {
+        allPosts = posts;
+    } else {
+        allPosts = posts.filter(elem => $typesStore.some(elem2 => elem.typeID == elem2));
+    }
+
+
+    function sortByPrice () {
+        allPosts = allPosts.sort((a, b) => parseInt(a.itemPrice) > parseInt(b.itemPrice) ? 1 : -1);
+        activeButton = 2;
+    }
+
+    function sortByViews () {
+        allPosts = allPosts.sort((a, b) => parseInt(a.viewsCount) > parseInt(b.viewsCount) ? -1 : 1);
+        activeButton = 1;
+    }
+
+    function sortByDate () {
+        allPosts = allPosts.sort((a, b) => {
+            let c = new Date(a.itemPostDate).getTime();
+            let d = new Date(b.itemPostDate).getTime();
+            return c > d ? -1 : 1;
+        });
+        activeButton = 3;
+    }
+
+    function sortByFavorite () {
+        visibleFavorite = !visibleFavorite;
+
+        if (visibleFavorite) {
+            allPosts = allPosts.filter((item) => {
+                return item.itemFavorite == true;
+            })
+            
+            if (allPosts.length == 0) {
+                alert("добавьте что-нибудь в избранное")
+                visibleFavorite = false;
+                return allPosts = posts;
+            }
+        } else {
+            allPosts = posts;
+        }
+    }
 </script>
 
-<div class="wrapper">
-	<Header />
-	<Aside></Aside>
-	<Main></Main>
-</div>
+<main>
+    <div class="title">результаты</div>
+    <div class="descr">Показать сначала:</div>
+    <div class="content_nav">
+        <div class="btn_group">
+            <button on:click={sortByViews} class:active={activeButton === 1}>Популярные</button>
+            <button on:click={sortByPrice} class:active={activeButton === 2}>Дешевые</button>
+            <button on:click={sortByDate} class:active={activeButton === 3}>Новые</button>
+        </div>
+        <div class="favorite_btn">
+            <button on:click={sortByFavorite} class:active={visibleFavorite}>
+                <span class="material-icons">
+                    favorite_border
+                    </span>
+                Показать избранные
+            </button>
+        </div>
+    </div>
 
-<slot />
+    <!-- <PostList allPostsArr={allPosts}></PostList> -->
+    
+    <ul class="post_list">
+        {#each allPosts as item (item.itemID)}
+            <PostItem {...item}></PostItem>
+        {/each}
+    </ul>
+</main>
 
-<style>
-	.wrapper {
-		min-height: 100vh;
-		max-width: 1200px;
-		margin: 0 auto;
-		background: #fff;
-		box-shadow: 0px 0px 10px 3px rgba(0,0,0,.3);
-
-		display: grid;
-		grid-template-areas: 
-			"header header"
-			"aside main";
-
-		grid-template-rows: 60px 1fr;
-		grid-template-columns: 400px 1fr;
+<style lang=scss> 
+    main {
+		grid-area: main;
+        padding: 20px;
 	}
+
+    .title {
+        font-size: 18px;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .descr {
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--text-color-light);
+    }
+
+    .content_nav {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        display: flex;
+
+        
+    }
+
+    .btn_group {
+        display: flex;
+        button {
+            border: 1px solid lightgray;
+            padding: 10px;
+            background: rgba(0,0,0,.0);
+            margin-left: -2px;
+            display: flex;
+            align-items: center;
+            &.active {
+                background: var(--bg-color);
+                border: 1px solid var(--bg-color);
+                color: #fff;
+            }
+
+            &:first-child {
+                border-radius: 6px 0 0 6px;
+            }
+            &:last-child {
+                border-radius: 0px 6px 6px 0;
+            }
+
+            span {
+                margin-right: 5px;
+            }
+        }
+    }
+
+    .favorite_btn {
+        margin-left: auto;
+
+        button {
+            border: 1px solid lightgray;
+            padding: 10px;
+            background: rgba(0,0,0,.0);
+            display: flex;
+            align-items: center;
+            border-radius: 6px;
+            span {
+                margin-right: 5px;
+            }
+            &.active {
+                background: var(--bg-color);
+                border: 1px solid var(--bg-color);
+                color: #fff;
+            }
+        }
+    }
 
 </style>

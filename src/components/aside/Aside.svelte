@@ -38,6 +38,7 @@
         let index = $typesStore.indexOf(id);
         if (index > -1) {
             $typesStore.splice(index, 1);
+            $typesStore = $typesStore;
         } else {
             $typesStore = [...$typesStore, id];
         }
