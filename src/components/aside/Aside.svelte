@@ -44,6 +44,23 @@
         }
     }
 
+    function onlydigits(node) {
+        function clean_value(){
+            node.value = node.value.replace(/[^\d]/g,'');
+        }
+
+        node.addEventListener('input',clean_value);
+
+        return {
+            destroy: ()=>node.removeEventListener('input',clean_value)
+        }
+    }
+
+    function clearRangeInputs () {
+        $pricesRangeStore.min = "",
+        $pricesRangeStore.max = ""
+    }
+
 </script>
 
 <aside>
@@ -59,13 +76,19 @@
     <div class="range_form">
         <div class="range_form_item">
             <span>от {minPrice}</span>
-            <input type="text" bind:value={$pricesRangeStore.min}>
+            <input type="text" use:onlydigits bind:value={$pricesRangeStore.min}>
         </div>
         <div class="range_form_item">
             <span>до {maxPrice}</span>
-            <input type="text" bind:value={$pricesRangeStore.max}>
+            <input type="text" use:onlydigits bind:value={$pricesRangeStore.max}>
         </div>
+        {#if $pricesRangeStore.min > 0 || $pricesRangeStore.max > 0}
+            <span class="clear_range" on:click={clearRangeInputs}>очистить</span>
+        {/if}
     </div>
+    
+    
+
 
     <div class="types_list">
         {#each tempTypes as item (item.typeID)}
@@ -115,6 +138,7 @@
     .range_form {
         display: flex;
         gap: 10px;
+        position: relative;
     }
 
     .range_form_item {
@@ -146,4 +170,14 @@
         margin: 10px 0 20px;
     }
 
+    .clear_range {
+        color: var(--bg-color);
+        cursor: pointer;
+        display: block;
+        text-align: right;
+
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
 </style>

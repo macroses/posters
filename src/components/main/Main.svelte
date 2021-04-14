@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
     // stores
     import { categoryStore } from '../store';
     import { pricesRangeStore } from '../pricesValueStore';
@@ -12,6 +12,20 @@
     let activeButton = 0;
     let visibleFavorite = false;
 
+    const fetchData = async () => {
+        const res = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+        const data = res.json();
+
+        if (res.ok) {
+            return data;
+        }
+    }
+
+    fetchData();
+
+
+
+    // стор для категорий
     $: if ($categoryStore == 0) {
         allPosts = posts;
     } else {
@@ -19,21 +33,19 @@
         activeButton = 0;
         visibleFavorite = false;
     }
-        
 
-    // следим за стором значений инпутов из Aside.svelte
-    pricesRangeStore.subscribe(inpVal => {
-        if (inpVal.min > 0 && inpVal.max > 0) {
-            allPosts = posts.filter(el => (parseInt(el.itemPrice) >= inpVal.min) && (parseInt(el.itemPrice) <= inpVal.max));
-        } else if (inpVal.min > 0) {
-            allPosts = posts.filter(el => (parseInt(el.itemPrice) >= inpVal.min));
-        } else if (inpVal.max > 0) {
-            allPosts = posts.filter(el => (parseInt(el.itemPrice) <= inpVal.max));
-        } else {
-            allPosts = posts
-        }
-    });
+    // стор для цен
+    $: if ($pricesRangeStore.min > $pricesRangeStore.max) {
+        allPosts = posts.filter(el => (parseInt(el.itemPrice) >= $pricesRangeStore.min) && (parseInt(el.itemPrice) <= $pricesRangeStore.max));
+    } else if ($pricesRangeStore.min > 0) {
+        allPosts = posts.filter(el => (parseInt(el.itemPrice) >= $pricesRangeStore.min));
+    } else if ($pricesRangeStore.max > 0) {
+        allPosts = posts.filter(el => (parseInt(el.itemPrice) <= $pricesRangeStore.max));
+    } else {
+        allPosts = posts;
+    }
 
+    // стор для типов
     $: if ($typesStore.length == 0) {
         allPosts = posts;
     } else {
@@ -184,4 +196,4 @@
         }
     }
 
-</style>
+</style> -->

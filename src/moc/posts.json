@@ -11,7 +11,12 @@
         "itemRoomsCount": "2",
         "viewsCount": "120",
         "itemFavorite": false,
-        "itemPhoto": "https://img-fotki.yandex.ru/get/4136/74742583.6e/0_a246c_342f6b8c_XL.jpg",
+        "itemPhoto": [
+            "https://img-fotki.yandex.ru/get/4136/74742583.6e/0_a246c_342f6b8c_XL.jpg",
+            "https://s0.rbk.ru/v6_top_pics/resized/945xH/media/img/3/03/755501353259033.jpg",
+            "https://md-eksperiment.org/images/posts/a70ccf57-d401-4c48-9c6b-13affbcc9c8e.jpeg",
+            "https://www.pufikhomes.com/wp-content/uploads/2020/04/belaya-kvartira-s-antresolu-22-kvm-pufikhomes-1.jpg"
+        ],
         "itemAbout": "Предложения от СОБСТВЕННИКА! Коттедж площадью 57 кв.м. с отдельным входом и огороженной собственной территорией. Банкетный зал площадью 80 кв.м. с необходимой мебелью, музыкальная аппаратура и цветной подсветкой зала, оборудованная современной техникой (холодильник, индукционная варочная панель, духовой шкаф, микроволновая печь) и посудой кухня, два санузла (один с душем на втором этаже)."
     },
     {
@@ -26,7 +31,9 @@
         "itemRoomsCount": "10",
         "viewsCount": "56",
         "itemFavorite": false,
-        "itemPhoto": "https://ruplans.ru/cms_files/98/184/4942/view-image.jpg",
+        "itemPhoto": [
+            "https://ruplans.ru/cms_files/98/184/4942/view-image.jpg"
+        ],
         "itemAbout": "Участок, каменный дом, плитный фундамент, монолитные перекрытия между этажами, внутренняя и внешняя отделка, тёплые полы, собственная котельная, гараж, забор по кругу, автоматические ворота и круглосуточная охрана. ВСЯ ИНФРАСТРУКТУРА РЯДОМ!"
     },
     {
@@ -41,7 +48,9 @@
         "itemRoomsCount": "5",
         "viewsCount": "977",
         "itemFavorite": false,
-        "itemPhoto": "https://1house.by/wp-content/uploads/2017/01/Perspektiva-12.jpg",
+        "itemPhoto": [
+            "https://1house.by/wp-content/uploads/2017/01/Perspektiva-12.jpg"
+        ],
         "itemAbout": "Продаётся таунхаус в КП Дубрава. Трёхэтажный + цоколь + мансарда. Фундамент и перекрытия монолитный бетон, стены кирпичные, наружные с утеплителем толщиной 60см. Без отделки. Посёлок расположен рядом с пос.Поведники на берегу Клязьминского водохранилища ( до воды 300 метров) в лесном массиве."
     },
 
@@ -58,7 +67,9 @@
         "itemRoomsCount": "1",
         "viewsCount": "1249",
         "itemFavorite": false,
-        "itemPhoto": "https://cs8.pikabu.ru/post_img/big/2016/07/13/8/14684125001100181705.jpg",
+        "itemPhoto": [
+            "https://cs8.pikabu.ru/post_img/big/2016/07/13/8/14684125001100181705.jpg"
+        ],
         "itemAbout": "Однушка"
     },
     {
@@ -73,7 +84,9 @@
         "itemRoomsCount": "2",
         "viewsCount": "3612",
         "itemFavorite": false,
-        "itemPhoto": "https://www.fontanka.ru/longreads/69055537/2020/images/tild3236-3039-4438-b935-366561386233__48.jpg",
+        "itemPhoto": [
+            "https://www.fontanka.ru/longreads/69055537/2020/images/tild3236-3039-4438-b935-366561386233__48.jpg"
+        ],
         "itemAbout": "Сдам 2-х комнатную квартиру. В шаговой доступности метро, Ашан, школа, ТРК Бум. Можно заезжать со своей мебелью. Готовы докупить стиральную машину, микроволновую печь, кровати при отсутствии их у вас."
     },
     {
@@ -88,7 +101,9 @@
         "itemRoomsCount": "1",
         "viewsCount": "2",
         "itemFavorite": false,
-        "itemPhoto": "https://ic.pics.livejournal.com/nelidova_ng/83946200/121314/121314_800.jpg",
+        "itemPhoto": [
+            "https://ic.pics.livejournal.com/nelidova_ng/83946200/121314/121314_800.jpg"
+        ],
         "itemAbout": "Доплачу 200 рублей, только заберите"
     },
 
@@ -105,7 +120,9 @@
         "itemRoomsCount": "1",
         "viewsCount": "11244",
         "itemFavorite": false,
-        "itemPhoto": "https://st75.domofond.ru/image/1/_gLtBba29upZRkIhUGDIavqOUOtdpLD7k61Q",
+        "itemPhoto": [
+            "https://st75.domofond.ru/image/1/_gLtBba29upZRkIhUGDIavqOUOtdpLD7k61Q"
+        ],
         "itemAbout": ""
     },
     {
@@ -120,7 +137,9 @@
         "itemRoomsCount": "2",
         "viewsCount": "8201",
         "itemFavorite": false,
-        "itemPhoto": "https://cdn.mskguru.ru/uploads/news/spros-na-apartamenty-moskve-v-pervom-kvartale-zametno-snizilsja_l.jpg",
+        "itemPhoto": [
+            "https://cdn.mskguru.ru/uploads/news/spros-na-apartamenty-moskve-v-pervom-kvartale-zametno-snizilsja_l.jpg"
+        ],
         "itemAbout": "В продаже АПАРТАМЕНТЫ бизнес-класса в МФК Флотилия! Всего в 10 минутах пешком от метро Речной Вокзал. Все апартаменты со свободной планировкой с возможностью объединения с кухней. Лоджии с панорамным остеклением, высокие потолки (3,1м). На территории собственная инфраструктура: культурно-развлекательная зона с кинотеатром на 6 залов, боулингом и игровым центром. Территория огорожена, граничит непосредственно с парковой зоной (парк Дружба). Квартал полностью готов, получена собственность, идет выдача ключей! Продажа осуществляется от застройщика по договору купли-продажи."
     },
     {
@@ -135,7 +154,9 @@
         "itemRoomsCount": "4",
         "viewsCount": "952",
         "itemFavorite": false,
-        "itemPhoto": "https://avatars.mds.yandex.net/get-yablogs/28577/file_1530521211621/orig",
+        "itemPhoto": [
+            "https://avatars.mds.yandex.net/get-yablogs/28577/file_1530521211621/orig"
+        ],
         "itemAbout": "Всего в 10 минутах пешком от метро Речной Вокзал. Все апартаменты со свободной планировкой с возможностью объединения с кухней. Лоджии с панорамным остеклением, высокие потолки (3,1 м). На территории собственная инфраструктура: культурно-развлекательная зона с кинотеатром на 6 залов, боулингом и игровым центром. Территория огорожена, граничит непосредственно с парковой зоной (парк Дружба). Квартал полностью готов, получена собственность, идет выдача ключей! Продажа осуществляется от застройщика по договору купли-продажи. "
     },
 
@@ -150,7 +171,9 @@
         "itemPostDate": "22 3 2021 12:00:00 AM",
         "viewsCount": "220",
         "itemFavorite": false,
-        "itemPhoto": "https://s.auto.drom.ru/i24210/c/photos/fullsize/bmw/x3/bmw_x3_728114.jpg",
+        "itemPhoto": [
+            "https://s.auto.drom.ru/i24210/c/photos/fullsize/bmw/x3/bmw_x3_728114.jpg"
+        ],
         "itemAbout": "Автомобиль в отличном состоянии. На прошлой неделе прошла ТО и заменила лобовое стекло. Хорошая комплектация."
     },
     {
@@ -163,7 +186,9 @@
         "itemPostDate": "21 3 2021 12:00:00 AM",
         "viewsCount": "25",
         "itemFavorite": false,
-        "itemPhoto": "https://30.img.avito.st/image/1/nyzfk7axM8XpJLHI7aXcMzkwM8FjMjnH",
+        "itemPhoto": [
+            "https://30.img.avito.st/image/1/nyzfk7axM8XpJLHI7aXcMzkwM8FjMjnH"
+        ],
         "itemAbout": "Состояние нового авто,куплена у официального дилера в декабре 20 года,родной пробег 4850км,не бита не крашена ни одна деталь,в салоне пахнет новым авто,Комплектация Supreme plus,из допов-спутниковая сигнализация призрак с меткой,сетка под бампер,защита Картера,два комплекта ковров,зимняя резина шипованная Pirelli,летняя на фото вообще не эксплуатировалась,"
     },
     {
@@ -176,7 +201,9 @@
         "itemPostDate": "6 4 2021 12:00:00 AM",
         "viewsCount": "9100",
         "itemFavorite": false,
-        "itemPhoto": "https://95.img.avito.st/image/1/XohIJ7ax8mF-kHBseGJNk66E8mX0hvhj",
+        "itemPhoto": [
+            "https://95.img.avito.st/image/1/XohIJ7ax8mF-kHBseGJNk66E8mX0hvhj"
+        ],
         "itemAbout": "2021, кондиционер, аудио, ткань, airbags, ABS, центральный замок, электропривод стекол, электропривод зеркал, обогрев лобового стекла, обогрев сидений, R16"
     },
     {
@@ -189,7 +216,9 @@
         "itemPostDate": "8 4 2021 09:33:00 AM",
         "viewsCount": "34",
         "itemFavorite": false,
-        "itemPhoto": "https://assets.avtocod.ru/storage/images/Audi-80-B3.JPG",
+        "itemPhoto": [
+            "https://assets.avtocod.ru/storage/images/Audi-80-B3.JPG"
+        ],
         "itemAbout": "Продаю ауди 80, не заводилась года полтора-два, акум скорее всего дохлый, заниматься некогда. На запчасти, на разбор или под востановление ЦЕЛИКОМ за 50,000, возможен не большей торг, Обмен не интересует."
     },
     {
@@ -202,7 +231,9 @@
         "itemPostDate": "15 11 2020 09:12:00 AM",
         "viewsCount": "1",
         "itemFavorite": false,
-        "itemPhoto": "https://avatars.mds.yandex.net/get-verba/787013/2a000001609d5af365323537707cb8318985/cattouch",
+        "itemPhoto": [
+            "https://avatars.mds.yandex.net/get-verba/787013/2a000001609d5af365323537707cb8318985/cattouch"
+        ],
         "itemAbout": "без торга, на ходу сел-поехал, документы чистые три хозяина"
     },
 
@@ -219,7 +250,9 @@
         "itemPostDate": "1 4 2020 12:31:00 AM",
         "viewsCount": "867",
         "itemFavorite": false,
-        "itemPhoto": "https://32.img.avito.st/image/1/KXP79rayhZrNQQeXpeIXfQJVhZxbV4c",
+        "itemPhoto": [
+            "https://32.img.avito.st/image/1/KXP79rayhZrNQQeXpeIXfQJVhZxbV4c"
+        ],
         "itemAbout": "⭐ ЦЕНА - гибко меняется в зависимости от курса валюты и может быть как НИЖЕ, так и выше, просьба актуализировать у менеджера."
     },
     {
@@ -232,7 +265,9 @@
         "itemPostDate": "3 4 2020 12:31:00 PM",
         "viewsCount": "250",
         "itemFavorite": false,
-        "itemPhoto": "https://65.img.avito.st/image/1/dG1poray2IRfFVqJDfctUo8B2ILJA9o",
+        "itemPhoto": [
+            "https://65.img.avito.st/image/1/dG1poray2IRfFVqJDfctUo8B2ILJA9o"
+        ],
         "itemAbout": "В нашем профиле есть другие модели ноутбуков - добавьте в избранное ❤️, чтобы не потерять!"
     },
     {
@@ -245,7 +280,9 @@
         "itemPostDate": "3 4 2020 12:31:00 PM",
         "viewsCount": "33",
         "itemFavorite": false,
-        "itemPhoto": "https://39.img.avito.st/image/1/Dhq5cbayovOPxiD-qWF-QzLSovUZ0KA",
+        "itemPhoto": [
+            "https://39.img.avito.st/image/1/Dhq5cbayovOPxiD-qWF-QzLSovUZ0KA"
+        ],
         "itemAbout": "Ноутбук HP EliteBook 840 с процессором intel Core i5, качественным HD+ дисплеем и в металлическом корпусе! Премиальная линейка очень надежных и производительных ноутбуков которые легко справятся с Офисными задачами, Бизнес программами, созданием презентаций, обработки Фото и видео, а так же работой в AutoCad, ArchiCad c чертежами или моделированием! Отличаются хорошей автономностью и возможность установки 2х дисков SSD + HDD."
     }
 ]

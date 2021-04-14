@@ -7,12 +7,28 @@
     export let itemPostDate;
     export let viewsCount;
     export let itemID;
+
+    // создаем элементы, в каждом из которых получаем индекс картинки на которую навели. 
+    // передаем индекс в img src, отрисовываем.
+
+    let currentIndex = 0;
+
+    const getIndex = (i) => {
+        currentIndex = i;
+    }
 </script>
 
 
 <div class="container">
     <div class="item_photo">
-        <img src={itemPhoto} alt="">
+        <img src={itemPhoto[currentIndex]} alt="">
+        <div class="photo_collection">
+            {#each itemPhoto as imgItem, index}
+                <a href="." class="img_item" on:mouseenter={() => getIndex(index)}>{index}</a>
+            {/each}
+        </div>
+        
+        
         <div class="favorite {itemFavorite ? 'active' : ''}"  
             on:click={() => itemFavorite = !itemFavorite}
             title="добавить в избранное">
@@ -40,6 +56,28 @@
 </div>
 
 <style lang=scss>
+    .photo_collection {
+        position: absolute;
+        width: 98%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        bottom: 0;
+        left: 1%;
+        z-index: 1;
+        a {
+            color: #fff;
+            display: block;
+            height: 100%;
+            position: relative;
+            &:before {
+                content: '';
+                position: absolute;
+
+            }
+        }
+    }
+
     .container {
         display: flex;
         align-items: center;

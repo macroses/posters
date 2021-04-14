@@ -12,6 +12,12 @@
     let activeButton = 0;
     let visibleFavorite = false;
 
+    $: if ($typesStore.length == 0) {
+        allPosts = posts;
+    } else {
+        allPosts = posts.filter(elem => $typesStore.some(elem2 => elem.typeID == elem2));
+    }
+
     $: if ($categoryStore == 0) {
         allPosts = posts;
     } else {
@@ -22,23 +28,17 @@
         
 
     // следим за стором значений инпутов из Aside.svelte
-    pricesRangeStore.subscribe(inpVal => {
-        if (inpVal.min > 0 && inpVal.max > 0) {
-            allPosts = posts.filter(el => (parseInt(el.itemPrice) >= inpVal.min) && (parseInt(el.itemPrice) <= inpVal.max));
-        } else if (inpVal.min > 0) {
-            allPosts = posts.filter(el => (parseInt(el.itemPrice) >= inpVal.min));
-        } else if (inpVal.max > 0) {
-            allPosts = posts.filter(el => (parseInt(el.itemPrice) <= inpVal.max));
-        } else {
-            allPosts = posts
-        }
-    });
-
-    $: if ($typesStore.length == 0) {
-        allPosts = posts;
+    $: if ($pricesRangeStore.min > $pricesRangeStore.max) {
+        allPosts = posts.filter(el => (parseInt(el.itemPrice) >= $pricesRangeStore.min) && (parseInt(el.itemPrice) <= $pricesRangeStore.max));
+    } else if ($pricesRangeStore.min > 0) {
+        allPosts = posts.filter(el => (parseInt(el.itemPrice) >= $pricesRangeStore.min));
+    } else if ($pricesRangeStore.max > 0) {
+        allPosts = posts.filter(el => (parseInt(el.itemPrice) <= $pricesRangeStore.max));
     } else {
-        allPosts = posts.filter(elem => $typesStore.some(elem2 => elem.typeID == elem2));
+        allPosts = posts;
     }
+
+    
 
 
     function sortByPrice () {
@@ -98,7 +98,6 @@
         </div>
     </div>
 
-    <!-- <PostList allPostsArr={allPosts}></PostList> -->
     
     <ul class="post_list">
         {#each allPosts as item (item.itemID)}

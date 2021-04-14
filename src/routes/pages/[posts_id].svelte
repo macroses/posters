@@ -17,14 +17,51 @@
 
 </script>
 
-<a href="/">назад</a>
+<a href="/" class="back_link">назад</a>
 
 <div class="date">{itemPostDate}</div>
 <div class="name">{itemName}</div>
 <div class="price">{itemPrice}</div>
 <div class="photo">
-    <img src="{itemPhoto}" alt="">
+    {#each itemPhoto as imgItem}
+        <img src="{imgItem}" alt="">
+    {/each}
 </div>
-<div class="about">{itemAbout}</div>
+
+<div class="about">
+    <div class="descr">Описание:</div>
+    {itemAbout}
+</div>
 <div class="geo">{itemGeo}</div>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2237.46002828215!2d37.52987801622137!3d55.889380680590065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b539d0a607b5b3%3A0xdbaf7cd6915a9d0d!2z0YPQuy4g0JvQvtCx0L3QtdC90YHQutCw0Y8sIDE5LCDQnNC-0YHQutCy0LAsIDEyNzQxMQ!5e0!3m2!1sru!2sru!4v1618323212274!5m2!1sru!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+<style lang="scss">
+    .photo {
+        max-width: 500px;
+        margin-bottom: 25px;
+        img {
+            width: 100%;
+            
+        }
+    }
+
+    .descr {
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--text-color-light);
+        margin-bottom: 10px;
+    }
+
+    .back_link {
+        color: var(--bg-color);
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+
+    .about {
+        font-weight: bold;
+        color: #000;
+        line-height: 1.1;
+    }
+
+
+</style>

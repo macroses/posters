@@ -2,7 +2,6 @@
 	import '../app.scss';
     import Header from '../components/Header.svelte';
     import Aside from '../components/aside/Aside.svelte';
-    import Main from '../components/main/Main.svelte';
 </script>
 
 <div class="wrapper">
