@@ -5,7 +5,6 @@
     import { typesStore } from '../components/typesStore.js';
 
     import posts from '../moc/posts.json';
-    // import PostList from '../posts/PostList.svelte';
     import PostItem from '../components/postItem/PostItem.svelte';
     
     let allPosts = posts;

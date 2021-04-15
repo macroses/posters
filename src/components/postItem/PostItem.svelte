@@ -8,9 +8,6 @@
     export let viewsCount;
     export let itemID;
 
-    // создаем элементы, в каждом из которых получаем индекс картинки на которую навели. 
-    // передаем индекс в img src, отрисовываем.
-
     let currentIndex = 0;
 
     const getIndex = (i) => {
@@ -24,7 +21,7 @@
         <img src={itemPhoto[currentIndex]} alt="">
         <div class="photo_collection">
             {#each itemPhoto as imgItem, index}
-                <a href="." class="img_item" on:mouseenter={() => getIndex(index)}>{index}</a>
+                <a href="pages/{itemID}" on:mouseenter={() => getIndex(index)}></a>
             {/each}
         </div>
         
@@ -68,12 +65,21 @@
         a {
             color: #fff;
             display: block;
+            flex: 1;
             height: 100%;
             position: relative;
             &:before {
                 content: '';
                 position: absolute;
+                width: 100%;
+                height: 5px;
+                background: rgba(255,255,255,0);
+                bottom: 10px;
+                left: 0;
+            }
 
+            &:hover:before {
+                background: rgba(255,255,255,.7);
             }
         }
     }

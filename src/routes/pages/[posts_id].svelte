@@ -15,6 +15,8 @@
 
     let { itemPostDate, itemName, itemPrice, itemPhoto, itemAbout, itemGeo} = currentPost;
 
+    let showModal = false;
+
 </script>
 
 <a href="/" class="back_link">назад</a>
@@ -33,6 +35,10 @@
     {itemAbout}
 </div>
 <div class="geo">{itemGeo}</div>
+
+<button on:click="{() => showModal = true}">modal</button>
+
+
 
 <style lang="scss">
     .photo {
