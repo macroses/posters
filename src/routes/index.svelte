@@ -11,6 +11,12 @@
     let activeButton = 0;
     let visibleFavorite = false;
 
+    let parsedData = posts.map(item => {
+        return {
+            itemprice: parseInt(item.itemPrice)
+        }
+    })
+
     $: if ($typesStore.length == 0) {
         allPosts = posts;
     } else {
