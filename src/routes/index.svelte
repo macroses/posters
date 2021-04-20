@@ -11,12 +11,6 @@
     let activeButton = 0;
     let visibleFavorite = false;
 
-    let parsedData = posts.map(item => {
-        return {
-            itemprice: parseInt(item.itemPrice)
-        }
-    })
-
     $: if ($typesStore.length == 0) {
         allPosts = posts;
     } else {
@@ -30,7 +24,6 @@
         activeButton = 0;
         visibleFavorite = false;
     }
-        
 
     // следим за стором значений инпутов из Aside.svelte
     $: if ($pricesRangeStore.min > $pricesRangeStore.max) {
@@ -42,8 +35,6 @@
     } else {
         allPosts = posts;
     }
-
-    
 
 
     function sortByPrice () {
@@ -69,15 +60,14 @@
         visibleFavorite = !visibleFavorite;
 
         if (visibleFavorite) {
-            allPosts = allPosts.filter((item) => {
-                return item.itemFavorite == true;
-            })
+            allPosts = allPosts.filter((item) => item.itemFavorite == true);
             
             if (allPosts.length == 0) {
                 alert("добавьте что-нибудь в избранное")
                 visibleFavorite = false;
                 return allPosts = posts;
             }
+            
         } else {
             allPosts = posts;
         }
@@ -106,7 +96,7 @@
     
     <ul class="post_list">
         {#each allPosts as item (item.itemID)}
-            <PostItem {...item}></PostItem>
+            <PostItem {item}></PostItem>
         {/each}
     </ul>
 </main>

@@ -1,13 +1,5 @@
 <script>
-    export let itemPhoto;
-    export let itemFavorite;
-    export let itemName;
-    export let itemPrice;
-    export let itemGeo;
-    export let itemPostDate;
-    export let viewsCount;
-    export let itemID;
-
+    export let item;
     let currentIndex = 0;
 
     const getIndex = (i) => {
@@ -18,37 +10,37 @@
 
 <div class="container">
     <div class="item_photo">
-        <img src={itemPhoto[currentIndex]} alt="">
+        <img src={item.itemPhoto[currentIndex]} alt="">
         <div class="photo_collection">
-            {#each itemPhoto as imgItem, index}
-                <a href="pages/{itemID}" on:mouseenter={() => getIndex(index)}></a>
+            {#each item.itemPhoto as imgItem, index}
+                <a href="pages/{item.itemID}" on:mouseenter={() => getIndex(index)}></a>
             {/each}
         </div>
         
         
-        <div class="favorite {itemFavorite ? 'active' : ''}"  
-            on:click={() => itemFavorite = !itemFavorite}
+        <div class="favorite {item.itemFavorite ? 'active' : ''}"  
+            on:click={() => item.itemFavorite = !item.itemFavorite}
             title="добавить в избранное">
             <span class="material-icons">favorite</span>
         </div>
     </div>
 
     <div class="item_data">
-        <div class="item_name">{itemName}</div>
-        <div class="item_price">{itemPrice} &#8381;</div>
+        <div class="item_name">{item.itemName}</div>
+        <div class="item_price">{item.itemPrice} &#8381;</div>
         <div class="item_geo">
             <span class="material-icons-two-tone">place</span>
-            {itemGeo}
+            {item.itemGeo}
         </div>
-        <div class="item_postdate">{itemPostDate}</div>
+        <div class="item_postdate">{item.itemPostDate}</div>
         <div class="item_views" title="количество просмотров">
             <span class="material-icons">
                 visibility
             </span>
-            {viewsCount}
+            {item.viewsCount}
         </div>
 
-        <a href="pages/{itemID}">подробнее</a>
+        <a href="pages/{item.itemID}">подробнее</a>
     </div>
 </div>
 

@@ -1,11 +1,9 @@
 <script>
 	import '../app.scss';
-    import Header from '../components/Header.svelte';
     import Aside from '../components/aside/Aside.svelte';
 </script>
 
 <div class="wrapper">
-	<Header />
 	<Aside>123</Aside>
 	<main>
 		<slot></slot>
@@ -22,10 +20,9 @@
 
 		display: grid;
 		grid-template-areas: 
-			"header header"
 			"aside main";
 
-		grid-template-rows: 60px 1fr;
+		grid-template-rows: 1fr;
 		grid-template-columns: 400px 1fr;
 	}
 

@@ -6,16 +6,18 @@
 </script>
 <script>
     import posts from '../../moc/posts.json';
-    import categories from '../../moc/categories.json';
 
     export let posts_id;
 
     let currentPost = posts.filter(item => item.itemID == posts_id)[0];
-    let allCategories = categories;
 
     let { itemPostDate, itemName, itemPrice, itemPhoto, itemAbout, itemGeo} = currentPost;
 
-    let showModal = false;
+    let currentIndex = 0;
+
+    const getIndex = (i) => {
+        currentIndex = i;
+    }
 
 </script>
 
@@ -24,9 +26,10 @@
 <div class="date">{itemPostDate}</div>
 <div class="name">{itemName}</div>
 <div class="price">{itemPrice}</div>
+<img src={itemPhoto[currentIndex]} alt="" class="main_img">
 <div class="photo">
-    {#each itemPhoto as imgItem}
-        <img src="{imgItem}" alt="">
+    {#each itemPhoto as imgItem, index}
+        <img src="{imgItem}" alt="" on:click={() => getIndex(index)}>
     {/each}
 </div>
 
@@ -36,17 +39,24 @@
 </div>
 <div class="geo">{itemGeo}</div>
 
-<button on:click="{() => showModal = true}">modal</button>
 
 
 
 <style lang="scss">
+    .main_img {
+        max-width: 500px;
+        height: 400px;
+    }
+
     .photo {
         max-width: 500px;
         margin-bottom: 25px;
+        display: flex;
+
         img {
             width: 100%;
-            
+            max-width: 100px;    
+            cursor: pointer;
         }
     }
 
@@ -61,6 +71,7 @@
         color: var(--bg-color);
         margin-bottom: 20px;
         display: inline-block;
+        margin-top: 20px;
     }
 
     .about {
@@ -69,5 +80,13 @@
         line-height: 1.1;
     }
 
-
+    .date {
+        color: var(--text-color-light);
+        margin-bottom: 20px;
+    }
+    
+    .name {
+        font-size: 35px;
+        font-weight: bold;
+    }
 </style>
